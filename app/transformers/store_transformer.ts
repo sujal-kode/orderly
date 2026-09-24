@@ -1,0 +1,17 @@
+import type Store from '#models/store'
+import { BaseTransformer } from '@adonisjs/core/transformers'
+
+export default class StoreTransformer extends BaseTransformer<Store> {
+  toObject() {
+    return this.pick(this.resource, [
+      'id',
+      'name',
+      'address',
+      'latitude',
+      'longitude',
+      'isActive',
+      'createdAt',
+      'updatedAt',
+    ])
+  }
+}
